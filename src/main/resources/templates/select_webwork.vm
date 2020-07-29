@@ -1,0 +1,13 @@
+<html>
+<head>
+    <meta name="decorator" content="atl.general"/>
+    <title>Select project</title>
+</head>
+<body><br/>
+<div>Enter Project key or leave empty to get info about all projects</div><br/>
+<form method="post" action="/jira/secure/action.jspa">
+    <input type="text" name="key" />
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta name="decorator" content="atl.general"/>
+    <title>Project info</title>
+</head>
+<body>
+<div></div>
+
+<TABLE border="3">
+    <TR>
+        <TH>Project</TH>
+    </TR>
+    #foreach( $project in $myProjects )
+        <TR>
+            <td>$project.getKey()</td>
+            <td>
+                <table border="2">
+                    <tr>
+                        <th>Issue</th>
+                        <th>Attachment</th>
+                    </tr>
+                    #foreach($issue in $project.getIssues())
+                        <tr>
+                            <td>$issue.getKey()</td>
+                            <td>
+                                <table border="1">
+                                    <tr>
+                                        <th>Author</th>
+                                        <th>File</th>
+                                    </tr>
+                                    #foreach($attachment in $issue.getAttachments())
+                                        <tr>
+                                            <td>$attachment.getAuthorKey()</td>
+                                            <td>$attachment.getFilename()</td>
+                                        </tr>
+                                    #end
+                                </table>
+                            </td>
+                        </tr>
+                    #end
+                </table>
+            </td>
+        </TR>
+
+    #end
+</TABLE>
+
+</body>
+</html>
