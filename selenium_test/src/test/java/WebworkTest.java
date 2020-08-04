@@ -8,6 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Pure Selenium, not Atlassian-Selenium. Relies on "generated-test-resources.zip" 
+ */
+
 public class WebworkTest {
     private static WebDriver driver;
     private static SeleniumRunner runner;
