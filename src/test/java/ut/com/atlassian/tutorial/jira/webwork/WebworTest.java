@@ -20,7 +20,6 @@ public class WebworTest {
 
     @Test(expected = Exception.class)
     public void testSomething() throws Exception {
-
         //MyWebWorkAction testClass = new MyWebWorkAction();
         throw new Exception("MyWebWorkAction has no tests!");
 

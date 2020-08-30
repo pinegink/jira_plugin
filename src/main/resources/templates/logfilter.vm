@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta name="decorator" content="atl.general"/>
+    <title>Select project</title>
+</head>
+<body><br/>
+<form method="post" action="/jira/secure/logfilter.jspa">
+    log file path <input type="text" name="logFile" size="100" value="C:/Program Files/Atlassian/Application Data/JIRA/log/atlassian-jira.log"> <br/><br/>
+    max entries <input type="number" name="maxEntries" id="maxentries" min="0" value="500"/>
+    log level <select name="logLevel" id="logLevel">
+    <option value="ALL">All</option>
+    <option value="DEBUG">DEBUG</option>
+    <option value="INFO">INFO</option>
+    <option value="WARN">WARN</option>
+    <option value="ERROR">ERROR</option>
+    <option value="FATAL">FATAL</option>
+    <option value="OFF">OFF</option>
+    <option value="TRACE">TRACE</option>
+</select>
+   class name <input type="text" name="className" id="className"/>
+   from <input type="datetime-local" name="fromDate" id="fromDate">
+   to <input type="datetime-local" name="toDate" id="toDate">
+    <input type="submit" value="Submit" id="submit"/>
+</form>
+
+<br/><br/>
+
+#foreach($line in $logFiltered)
+    $line <br/>
+#end
+
+</body>
+</html>

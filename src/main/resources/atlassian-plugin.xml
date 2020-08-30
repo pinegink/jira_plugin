@@ -1,53 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
-    <plugin-info>
-        <description>${project.description}</description>
-        <version>${project.version}</version>
-        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
-        <param name="plugin-icon">images/pluginIcon.png</param>
-        <param name="plugin-logo">images/pluginLogo.png</param>
-    </plugin-info>
-    <!-- add our i18n resource -->
-    <resource type="i18n" name="i18n" location="myPlugin"/>
-    <!-- add our web resources -->
-    <web-resource key="myPlugin-resources" name="myPlugin Web Resources">
-        <dependency>com.atlassian.auiplugin:ajs</dependency>
-        <resource type="download" name="myPlugin.css" location="/css/myPlugin.css"/>
-        <resource type="download" name="myPlugin.js" location="/js/myPlugin.js"/>
-        <resource type="download" name="images/" location="/images"/>
-        <context>myPlugin</context>
-    </web-resource>
-
-    <webwork1 key="webwork1_key" name="Webwork1">
-        <actions>
-            <action name="com.atlassian.tutorial.myPlugin.webwork.Webwork" alias="action">
-                <view name="select">/templates/select_webwork.vm</view>
-                <view name="projects">/templates/projects.vm</view>
-            </action>
-        </actions>
-    </webwork1>
-
-    <servlet name="Servlet1"
-             class="com.atlassian.tutorial.myPlugin.servlet.MyServlet"
-             key="servlet1_key">
-        <url-pattern>/servlet</url-pattern>
-    </servlet>
-  <web-section key="section1_key" name="section1"
-                 location="system.admin.top.navigation.bar" weight="50">
-        <label key="Servlet"/>
-    </web-section>
-    <web-section key="section2_key" name="section2"
-                 location="system.admin.top.navigation.bar" weight="50">
-        <label key="Web work"/>
-    </web-section>
-
-    <web-item key="item1_key" name="Item1" section="section1_key" weight="10">
-        <!--  Maybe it is better to use injection of the url from a property file here   -->
-        <link linkId="item1_key">/plugins/servlet/servlet</link>
-    </web-item>
-    <web-item key="item2_key" name="Item2" section="section2_key" weight="10">
-        <link linkId="item2_key">/secure/action.jspa</link>
-    </web-item>
-
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
+  <plugin-info> 
+    <description>${project.description}</description>  
+    <version>${project.version}</version>  
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <param name="plugin-icon">images/pluginIcon.png</param>  
+    <param name="plugin-logo">images/pluginLogo.png</param> 
+  </plugin-info>  
+  <!-- add our i18n resource -->  
+  <resource type="i18n" name="i18n" location="myPlugin"/>  
+  <!-- add our web resources -->  
+  <web-resource key="myPlugin-resources" name="myPlugin Web Resources"> 
+    <dependency>com.atlassian.auiplugin:ajs</dependency>  
+    <resource type="download" name="myPlugin.css" location="/css/myPlugin.css"/>  
+    <resource type="download" name="myPlugin.js" location="/js/myPlugin.js"/>  
+    <resource type="download" name="images/" location="/images"/>  
+    <context>myPlugin</context> 
+  </web-resource>  
+  <webwork1 key="webwork1_key" name="Webwork1"> 
+    <actions> 
+      <action name="com.atlassian.tutorial.myPlugin.webwork.Webwork" alias="action">
+        <view name="select">/templates/select_webwork.vm</view>  
+        <view name="projects">/templates/projects.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>  
+  <servlet name="Servlet1" class="com.atlassian.tutorial.myPlugin.servlet.MyServlet" key="servlet1_key"> 
+    <url-pattern>/servlet</url-pattern> 
+  </servlet>  
+  <web-section key="section1_key" name="section1" location="system.admin.top.navigation.bar" weight="50"> 
+    <label key="Servlet"/> 
+  </web-section>  
+  <web-section key="section2_key" name="section2" location="system.admin.top.navigation.bar" weight="50"> 
+    <label key="Web work"/> 
+  </web-section>  
+  <web-item key="item1_key" name="Item1" section="section1_key" weight="10"> 
+    <!--  Maybe it is better to use injection of the url from a property file here   -->  
+    <link linkId="item1_key">/plugins/servlet/servlet</link>
+  </web-item>  
+  <web-item key="item2_key" name="Item2" section="section2_key" weight="10"> 
+    <link linkId="item2_key">/secure/action.jspa</link>
+  </web-item>
+  <webwork1 key="webwork2_key" name="Webwork2">
+    <actions>
+      <action name="com.atlassian.tutorial.myPlugin.logfilter.webwork.Webwork" alias="logfilter">
+        <view name="logfilter">/templates/logfilter.vm</view>
+      </action>
+    </actions>
+  </webwork1>
+  <web-section key="section3_key" name="section3" location="system.admin.top.navigation.bar" weight="50">
+    <label key="logfilter"/>
+  </web-section>
+  <web-item key="item3_key" name="Item3" section="section3_key" weight="10">
+    <link linkId="item2_key">/secure/logfilter.jspa</link>
+  </web-item>
 </atlassian-plugin>

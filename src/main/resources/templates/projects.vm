@@ -6,7 +6,7 @@
 <body>
 <div></div>
 
-<TABLE border="3">
+<TABLE border="3" id="main-table">
     <TR>
         <TH>Project</TH>
     </TR>
@@ -14,7 +14,7 @@
         <TR>
             <td>$project.getKey()</td>
             <td>
-                <table border="2">
+                <table border="2" id="issues-table">
                     <tr>
                         <th>Issue</th>
                         <th>Attachment</th>
